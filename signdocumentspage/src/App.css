@@ -1,0 +1,80 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+.app {
+  width: 400px;
+  height: 600px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phone {
+  font-size: 16px;
+  margin-left: 190px
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+.section {
+  margin-top: 20px;
+  background-color: #f5f5f5;
+  padding-top: 1px;
+  padding-bottom: 20px;
+  padding-right: 18px;
+  padding-left: 18px;
+  border-radius:12px
+}
+
+
+.sign-button {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.birbank{
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.firstdoc{
+  padding-top: 8px;
+  padding-bottom: 23px;
+  color: rgb(52, 144, 206);
+}
+
+.seconddoc{
+  color: rgb(52, 144, 206);
+}
+
+.thirddoc{
+  padding-top: 8px;
+  padding-bottom: 23px;
+  color: rgb(52, 144, 206);  
+}
+
+.fourthdoc{
+  color: rgb(52, 144, 206);
+}
+
