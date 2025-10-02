@@ -1,0 +1,158 @@
+.auth-page {
+  max-width: 600px;
+  margin: 5rem auto;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.auth-page h1,
+.register-header .register_text {
+  font-size: 2.2rem;
+  margin: 0;
+  color: #2563eb;
+}
+
+.auth-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.auth-page input {
+  padding: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  transition: border-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-page input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.auth-page button[type="submit"] {
+  padding: 0.85rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.auth-page button[type="submit"]:hover {
+  background-color: #1e40af;
+  transform: translateY(-1px);
+}
+
+.auth-page p {
+  margin-top: 1.2rem;
+  font-size: 1rem;
+}
+
+.auth-page a {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.auth-page a:hover {
+  color: #1e40af;
+}
+
+.register-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap; 
+  margin-left: 40px;
+}
+
+.register_text {
+  flex: 1;
+  text-align: center;
+}
+
+.header-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.language-switcher {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.language-switcher button {
+  padding: 6px 14px;
+  border: 2px solid #0056b3;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #0056b3;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-switcher button:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+.language-switcher .active-lang {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+.theme-toggle {
+  padding: 6px 14px;
+  border: 2px solid #2563eb;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #2563eb;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .auth-page {
+    padding: 2rem;
+    margin: 3rem auto;
+  }
+
+  .register-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-controls {
+    align-items: center;
+  }
+
+  .language-switcher {
+    justify-content: center;
+    text-align: center;
+  }
+}
