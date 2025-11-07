@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* YUNITY Mental Health Design System */
+    --background: 180 100% 13.3%; /* #004643 - dark teal */
+    --foreground: 180 0% 99.9%; /* #fffffe - white headlines */
+
+    --card: 180 100% 13.3%;
+    --card-foreground: 180 0% 99.9%;
+
+    --popover: 180 100% 13.3%;
+    --popover-foreground: 180 0% 99.9%;
+
+    --primary: 180 100% 13.3%; /* #004643 */
+    --primary-foreground: 180 0% 99.9%; /* #fffffe */
+
+    --secondary: 161 43% 75%; /* #abd1c6 - light teal for paragraphs */
+    --secondary-foreground: 180 100% 3.7%; /* #001e1d - dark teal text */
+
+    --muted: 161 43% 75%; /* #abd1c6 */
+    --muted-foreground: 180 100% 3.7%; /* #001e1d */
+
+    --accent: 40 91% 68%; /* #f9bc60 - warm yellow button */
+    --accent-foreground: 180 100% 3.7%; /* #001e1d - button text */
+
+    --destructive: 0 71% 62%; /* #e16162 - coral tertiary */
+    --destructive-foreground: 180 0% 99.9%;
+
+    --border: 161 43% 75%;
+    --input: 180 100% 13.3%;
+    --ring: 40 91% 68%;
+
+    --radius: 0.75rem;
+
+    /* Additional YUNITY colors */
+    --yunity-highlight: 40 91% 68%; /* #f9bc60 */
+    --yunity-illustration-main: 270 14% 91%; /* #e8e4e6 */
+    --yunity-illustration-stroke: 180 100% 3.7%; /* #001e1d */
+    --yunity-coral: 0 71% 62%; /* #e16162 */
+
+    /* Gradients and effects */
+    --gradient-calm: linear-gradient(135deg, hsl(180 100% 13.3%), hsl(161 43% 75% / 0.2));
+    --shadow-soft: 0 10px 40px -10px hsl(180 100% 3.7% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
