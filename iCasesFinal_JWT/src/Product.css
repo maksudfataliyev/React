@@ -292,9 +292,9 @@
 .content-wrapper {
   display: flex;
   gap: 2.5rem;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 3rem 0rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 3rem 2rem 3rem 0;
   align-items: flex-start;
 }
 
@@ -310,7 +310,7 @@
   border: 1px solid var(--input-border);
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
-  margin-left: 0;
+  margin-left: 2rem;
 }
 
 [data-theme="dark"] .filters-sidebar {
