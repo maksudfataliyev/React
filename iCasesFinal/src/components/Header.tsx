@@ -22,11 +22,33 @@ export default function Header({ cart }: HeaderProps) {
   const categories = ['phones', 'cases', 'headphones', 'earbuds', 'cables', 'watches'];
 
   useEffect(() => {
-    const username = localStorage.getItem('loggedInUser');
-    const users = JSON.parse(localStorage.getItem('users') || '{}');
-    if (username && users[username]?.profilePic) {
-      setProfilePic(users[username].profilePic);
-    }
+    const loadProfilePic = () => {
+      const currentUserStr = localStorage.getItem('currentUser');
+      if (!currentUserStr) return;
+      
+      try {
+        const currentUser = JSON.parse(currentUserStr);
+        if (currentUser?.profilePic) {
+          setProfilePic(currentUser.profilePic);
+        }
+      } catch (error) {
+        console.error('Error parsing currentUser:', error);
+      }
+    };
+
+    loadProfilePic();
+
+    const handleProfileUpdate = () => {
+      loadProfilePic();
+    };
+
+    window.addEventListener('profileUpdated', handleProfileUpdate);
+    window.addEventListener('storage', loadProfilePic);
+    
+    return () => {
+      window.removeEventListener('profileUpdated', handleProfileUpdate);
+      window.removeEventListener('storage', loadProfilePic);
+    };
   }, []);
 
   const handleCategoryClick = (category: string) => {
