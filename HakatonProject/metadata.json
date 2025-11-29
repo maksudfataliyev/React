@@ -1,0 +1,7 @@
+{
+  "name": "EcoRoute",
+  "description": "An intelligent environmental platform connecting users with local recycling points, eco-initiatives, and green events using AI-powered search.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
