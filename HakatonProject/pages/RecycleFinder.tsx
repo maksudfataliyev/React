@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, MapPin, Navigation, CheckCircle } from 'lucide-react';
-import { Location, PlaceResult } from '../types';
+import { Search, MapPin, CheckCircle } from 'lucide-react';
+import { PlaceResult } from '../types';
 import { localRecyclingPoints } from '../data/localPoints';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -10,7 +10,6 @@ declare const L: any;
 const RecycleFinder: React.FC = () => {
   const { t, language } = useLanguage();
   const [query, setQuery] = useState('');
-  const [location, setLocation] = useState<Location | undefined>(undefined);
   
   // Get points for current language
   const currentPoints = localRecyclingPoints[language] || localRecyclingPoints.en;
@@ -112,39 +111,12 @@ const RecycleFinder: React.FC = () => {
       }
     });
 
-    // Fit bounds if we have points, otherwise stay on default or user location
+    // Fit bounds if we have points, otherwise stay on default
     if (hasValidBounds) {
       mapRef.current.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
     }
 
   }, [results, language]); // Re-render markers if language changes (for popups)
-
-  // Geolocation
-  useEffect(() => {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-          // If map is ready, fly to user
-          if (mapRef.current) {
-            mapRef.current.flyTo([position.coords.latitude, position.coords.longitude], 13);
-            L.marker([position.coords.latitude, position.coords.longitude], {
-                icon: L.divIcon({
-                    className: 'bg-blue-500 w-4 h-4 rounded-full border-2 border-white shadow-lg',
-                    iconSize: [16, 16]
-                })
-            }).addTo(mapRef.current).bindPopup(t.finder.legend_user);
-          }
-        },
-        (error) => {
-          console.error("Geo error:", error);
-        }
-      );
-    }
-  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -300,10 +272,6 @@ const RecycleFinder: React.FC = () => {
               <div className="flex items-center gap-2 mb-1">
                   <div className="w-3 h-3 rounded-full border border-teal-600 bg-teal-600/20"></div>
                   <span className="text-slate-600 dark:text-slate-400">{t.finder.legend_verified}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full border border-blue-500 bg-blue-500/20"></div>
-                  <span className="text-slate-600 dark:text-slate-400">{t.finder.legend_user}</span>
               </div>
            </div>
         </div>
